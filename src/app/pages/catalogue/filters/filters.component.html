@@ -1,0 +1,11 @@
+<div *ngFor="let filter of filters | keyvalue">
+    <span><strong>{{filter.value.displayName}}</strong></span><br>
+    <ng-container *ngFor="let filterValue of filter.value.filterValues">
+        <input type="checkbox"
+               id="{{filterValue.label}}" 
+               name="{{filterValue.label}}" 
+               (change)="addFilter(filter.key, filterValue.value)"
+               [checked]="filterValue.checked">
+        <label for="{{filterValue.label}}">{{filterValue.label}}</label>
+    </ng-container>  
+</div>

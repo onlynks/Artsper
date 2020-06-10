@@ -1,0 +1,11 @@
+<div class="pagination">
+    <span (click)="changePage(currentPageNumber - 1)">&laquo;</span>
+    <span *ngIf="currentPageNumber - 2 > 1" (click)="changePage(1)">1/</span>
+    <span *ngIf="currentPageNumber - 2 > 1">.../</span>
+    <span *ngIf="currentPageNumber > 1" (click)="changePage(currentPageNumber - 1)">{{currentPageNumber - 1}}/</span>
+    <span><strong>{{currentPageNumber}}</strong>/</span>
+    <span *ngIf="currentPageNumber != pageQuantity" (click)="changePage(currentPageNumber + 1)">{{currentPageNumber + 1}}/</span>
+    <span *ngIf="currentPageNumber + 1 < pageQuantity">.../</span>
+    <span *ngIf="currentPageNumber + 1 < pageQuantity" (click)="changePage(pageQuantity)">{{pageQuantity}}</span>
+    <span (click)="changePage(currentPageNumber + 1)">&raquo;</span>
+  </div>

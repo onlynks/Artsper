@@ -1,0 +1,16 @@
+<app-filters [params]="params" (addParam)="addParam($event)"></app-filters>
+
+<div *ngFor="let article of articles">
+    <h3>{{article.artwork_title}}</h3>
+    <span>{{article.artist?.artist_firstname}} {{article.artist?.artist_lastname}}</span>
+    <span>{{article.category?.label.fr}}</span>
+    <ul>
+        <li>{{article.artwork_dimension_w}}</li>
+        <li>{{article.artwork_dimension_h}}</li>
+        <li>{{article.artwork_dimension_l}}</li>
+    </ul>
+    <span>{{article.prices[1]}}</span>
+    <img *ngIf="article.images && article.images.length > 0" src="{{article.images[0].absolute_path}}">
+</div>
+
+<app-pagination [pageQuantity]="pageQuantity" (navigate)="changePage($event)"></app-pagination>
